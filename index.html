@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osama Fawad | Portfolio</title>
+    <title>M. Osama Fawad | Portfolio</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <script defer src="assets/js/script.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/website_logo.png">
 </head>
 <body>
 
@@ -16,38 +17,324 @@
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Resume</a></li>
-                <li><a href="#">Work</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#work">Work Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#" class="btn">Hire Me</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
-    <div class="container">
+    <div class="container hero-content">
         <div class="hero-text">
-            <h3>Software Developer</h3>
-            <h1>Hello I'm <span>Osama Fawad</span></h1>
-            <p>Building AI and software solutions for real-world applications.</p>
-            <a href="assets/CV.pdf" class="btn">Download CV</a>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+            <h1>Hello I'm <span class="green-text">Muhammad Osama Fawad</span></h1>
+            <h2 class="highlight-text">Artificial Intelligence & Robotics Engineer</h2>
+            <h2>I offer services in <span id="dynamic-text" class="green-text">Artificial Intelligence</span></h2>
+            <div class="btn-container">
+                <a href="assets/CV.pdf" class="btn">Download CV</a>
+                <div class="social-icons">
+                    <a href="https://github.com/osama-fawad" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/osamafawad/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>                
             </div>
         </div>
-        <div class="hero-image">
-            <img src="assets/images/profile.png" alt="Osama Fawad">
+        <div class="profile-image-container">
+            <img src="assets/images/profile_6.png" alt="M. Osama Fawad" class="profile-image">
         </div>
     </div>
 </section>
 
-<footer>
-    <p>© 2024 Osama Fawad | AI Software Engineer</p>
-</footer>
+<!-- Education Section -->
+<section id="education" class="education-section">
+    <div class="section-header">
+        <h1 class="section-title">Education</h1>
+    </div>
+    <div class="container">
+        <div class="education-container">
+            <div class="education-item">
+                <a href="https://www.ube.fr/en/home/" target="_blank">
+                    <img src="assets/images/ube_logo_3.png" alt="Université Bourgogne Europe" class="education-logo">
+                </a>
+                <div class="education-content">
+                    <h2><a href="https://www.ube.fr/en/home/" target="_blank">Université Bourgogne Europe</a></h2>
+                    <h3>Master’s in Computer Vision & Robotics</h3>
+                    <p class="education-duration">France | 2024 - 2025</p>
+                </div>
+            </div>
+
+            <div class="education-item">
+                <a href="https://www.giki.edu.pk/" target="_blank">
+                    <img src="assets/images/giki_logo.png" alt="GIKI" class="education-logo">
+                </a>
+                <div class="education-content">
+                    <h2><a href="https://www.giki.edu.pk/" target="_blank">Ghulam Ishaq Khan Institute of Engineering Sciences and Technology</a></h2>
+                    <h3>Bachelor’s in Engineering Sciences - Photonics</h3>
+                    <p class="education-duration">Pakistan | 2016 - 2020</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Work Experience Section -->
+<section id="work" class="work-section">
+    <div class="section-header">
+        <h1 class="section-title">Work Experience</h1>
+    </div>
+    <div class="container">
+        <div class="work-container">
+            <div class="work-item">
+                <a href="https://gomotive.com/" target="_blank">
+                    <img src="assets/images/motive.jpg" alt="Motive" class="work-logo">
+                </a>
+                <div class="work-content">
+                    <h2><a href="https://gomotive.com/" target="_blank">Motive</a></h2>
+                    <h3>Machine Learning Software Engineer</h3>
+                    <p class="work-duration">Remote - USA | 2021 - 2024</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <img src="assets/images/Pakistan Air Force Logo.png" alt="Facility of Advanced Robotics and Intelligent Systems (PAF 109-AED)" class="work-logo">
+                <div class="work-content">
+                    <h2>Facility of Advanced Robotics and Intelligent Systems (PAF 109-AED)</h2>
+                    <h3>R&D Engineer - Robotics</h3>
+                    <p class="work-duration">Pakistan | 2020 - 2021</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section">
+    <div class="section-header">
+        <h1 class="section-title">Featured Projects</h1>
+    </div>
+    <div class="container">
+        <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <article class="project-card">
+                <div class="project-visual">
+                    <img src="assets/projects/autonomous-vehicle.jpg" alt="Autonomous Navigation">
+                    <div class="project-links">
+                        <a href="#" class="project-btn">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Autonomous Navigation System</h3>
+                    <p class="project-description">Real-time object detection and path planning system using ROS and OpenCV with SLAM integration for dynamic environments.</p>
+                    <div class="project-tech">
+                        <span>ROS</span>
+                        <span>OpenCV</span>
+                        <span>LIDAR</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+                <div class="project-visual">
+                    <img src="assets/projects/3d-reconstruction.jpg" alt="3D Reconstruction">
+                    <div class="project-links">
+                        <a href="#" class="project-btn">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">3D Scene Reconstruction</h3>
+                    <p class="project-description">Multi-view geometry pipeline using Structure from Motion and Neural Radiance Fields (NeRF) for high-fidelity 3D modeling.</p>
+                    <div class="project-tech">
+                        <span>NeRF</span>
+                        <span>PyTorch3D</span>
+                        <span>COLMAP</span>
+                        <span>CUDA</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+                <div class="project-visual">
+                    <img src="assets/projects/robot-arm.png" alt="Robotic Arm Control">
+                    <div class="project-links">
+                        <a href="#" class="project-btn">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Robotic Arm Controller</h3>
+                    <p class="project-description">Deep reinforcement learning system for adaptive robotic manipulation using ROS and PyTorch with real-time inverse kinematics.</p>
+                    <div class="project-tech">
+                        <span>PyTorch</span>
+                        <span>Gazebo</span>
+                        <span>RL</span>
+                        <span>MoveIt</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card">
+                <div class="project-visual">
+                    <img src="assets/projects/satellite-analysis.jpg" alt="Satellite Imagery">
+                    <div class="project-links">
+                        <a href="#" class="project-btn">
+                            <i class="fab fa-github"></i>
+                            View Code
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Satellite Image Analysis</h3>
+                    <p class="project-description">Deep learning pipeline for multispectral image segmentation using Vision Transformers on Sentinel-2 satellite data.</p>
+                    <div class="project-tech">
+                        <span>ViT</span>
+                        <span>TensorFlow</span>
+                        <span>GDAL</span>
+                        <span>QGIS</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section">
+    <div class="section-header">
+        <h1 class="section-title">Technical Skills</h1>
+    </div>
+    <div class="container">
+        <div class="skills-grid">
+
+            <!-- Programming & Languages -->
+            <div class="skill-category">
+                <h3 class="skill-heading">
+                    <i class="fas fa-code"></i>
+                    Programming
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/icons/python.svg" alt="Python">
+                        <span>Python</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/cplusplus.svg" alt="C++">
+                        <span>C++</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/mysql.svg" alt="SQL">
+                        <span>SQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AI & Data -->
+            <div class="skill-category">
+                <h3 class="skill-heading">
+                    <i class="fas fa-brain"></i>
+                    AI
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/icons/pytorch.svg" alt="PyTorch">
+                        <span>PyTorch</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/tensorflow.svg" alt="TensorFlow">
+                        <span>TensorFlow</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/opencv.svg" alt="OpenCV">
+                        <span>OpenCV</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/pandas.svg" alt="Pandas">
+                        <span>Pandas</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/langchain.svg" alt="LangChain">
+                        <span>LangChain</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/nvidia.svg" alt="CUDA">
+                        <span>CUDA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Software Engineering -->
+            <div class="skill-category">
+                <h3 class="skill-heading">
+                    <i class="fas fa-laptop-code"></i>
+                    Software Engineering
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/icons/linux.svg" alt="Linux">
+                        <span>Linux</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/amazonaws.svg" alt="AWS">
+                        <span>AWS</span>
+                    </div>
+                    <div class="skill-item">
+                        <img src="assets/icons/git.svg" alt="Git">
+                        <span>Git</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Dashboards</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Robotics -->
+            <div class="skill-category">
+                <h3 class="skill-heading">
+                    <i class="fas fa-robot"></i>
+                    Robotics
+                </h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <img src="assets/icons/ros.svg" alt="ROS">
+                        <span>ROS</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <span>SLAM</span>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>Microprocessor Interfacing</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="site-disclaimer">
+    🚧 This website is under development. Content is subject to change.
+</div>
+
 
 </body>
 </html>
