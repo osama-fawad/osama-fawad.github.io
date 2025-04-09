@@ -1,4 +1,21 @@
 /* Global Styles */
+
+#tsparticles {
+    filter: blur(0.3px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    background: #0d0d0d; /* match your theme */
+  }
+  
+  .hero, .container, header, section {
+    position: relative;
+    z-index: 1;
+  }
+  
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -935,15 +952,18 @@ nav ul li a {
 .site-disclaimer {
     position: fixed;
     bottom: 10px;
-    right: 15px;
-    background: rgba(0, 255, 153, 0.2); /* Light greenish glow */
-    color: #00ff99;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
-    font-weight: bold;
-    animation: fadeIn 1.5s ease-in-out;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7); /* semi-transparent */
+    color: #fff;
+    padding: 8px 20px;
+    font-size: 15px; /* you can increase this */
+    border-radius: 8px;
+    z-index: 9999;  /* ensures it's always on top */
+    box-shadow: 0 0 10px rgba(0,255,153,0.4);
+    pointer-events: none; /* ensures it's non-clickable */
 }
+
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
@@ -1027,4 +1047,46 @@ nav ul li a {
 
 .location-info:hover .flag-icon {
     box-shadow: 0 0 10px #00ff99;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #0d0d0d; /* Match your background */
+  }
+  .hero, .container {
+    z-index: 1;
+    position: relative;
+  }
+
+  body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #0d0d0d, #002d26, #003f3f);
+  background-size: 600% 600%;
+  animation: backgroundShift 15s ease infinite;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+@keyframes backgroundShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+.education-section,
+.work-section,
+.skills-section,
+.projects-section {
+    background: transparent; /* Let the background animation show through */
 }

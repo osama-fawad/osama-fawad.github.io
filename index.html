@@ -10,10 +10,11 @@
     <link rel="icon" type="image/png" href="assets/images/website_logo.png">
 </head>
 <body>
+    <div id="tsparticles"></div> <!-- Particle Background -->
     <div id="loader-wrapper">
         <div class="loader-bar"></div>
         <h2 class="loader-text">Loading Portfolio...</h2>
-      </div>
+    </div>
       
 <header>
     <div class="container">
@@ -408,6 +409,57 @@
         </div>
     </div>
 </section>
+
+
+<!-- Background Particles Animation: tsParticles CDN -->
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  background: { color: "#0d0d0d" },
+  fpsLimit: 60,
+  interactivity: {
+    events: {
+      onHover: { enable: true, mode: "grab" },
+      onClick: { enable: true, mode: "push" },
+      resize: true
+    },
+    modes: {
+      grab: { distance: 150, links: { opacity: 0.5 } },
+      push: { quantity: 2 }
+    }
+  },
+  particles: {
+    number: { value: 100, density: { enable: true, area: 1000 } },
+    color: { value: "#00ff99" },
+    shape: { type: ["circle", "triangle", "polygon"] },
+    opacity: {
+      value: 0.5,
+      random: true,
+      anim: { enable: true, speed: 1.5, opacity_min: 0.2, sync: false }
+    },
+    size: {
+      value: 4,
+      random: true,
+      anim: { enable: true, speed: 4, size_min: 0.5, sync: false }
+    },
+    links: {
+      enable: true,
+      distance: 140,
+      color: "#00ff99",
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 0.6,
+      direction: "none",
+      outModes: "bounce"
+    }
+  },
+  detectRetina: true
+});
+</script>
+
 
 <div class="site-disclaimer">
     🚧 This website is under development. Content is subject to change.
