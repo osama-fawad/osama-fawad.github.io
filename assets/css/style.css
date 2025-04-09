@@ -9,6 +9,7 @@
     top: 0;
     left: 0;
     background: #0d0d0d; /* match your theme */
+    pointer-events: none; /* prevents clicking interference */ 
   }
   
   .hero, .container, header, section {
@@ -71,9 +72,7 @@ header {
     backdrop-filter: blur(10px); /* Adds a smooth glassmorphism effect */
     padding: 15px 0;
     z-index: 1000; /* Ensures it stays above everything */
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 10px rgba(0, 255, 153, 0.1);
-}
+    transition: all 0.3s ease-in-out;}
 
 /* Animate when scrolling */
 .scrolled {
@@ -338,7 +337,7 @@ nav ul li a {
 
 .education-section {
     padding: 80px 0;
-    background: #111;
+    background: transparent;
     text-align: center;
 }
 
@@ -491,7 +490,7 @@ nav ul li a {
 
 .work-section {
     padding: 80px 0;
-    background: #111;
+    background: transparent;
     text-align: center;
 }
 
@@ -636,7 +635,7 @@ nav ul li a {
 /* Add to your style.css */
 .skills-section {
     padding: 80px 0;
-    background: #111;
+    background: transparent;
     text-align: center;
 }
 
@@ -839,7 +838,7 @@ nav ul li a {
 
 .projects-section {
     padding: 80px 0;
-    background: #0d0d0d;
+    background: transparent;
 }
 
 .projects-grid {
@@ -1036,13 +1035,13 @@ nav ul li a {
     display: flex;
     align-items: center;
     margin-top: 8px;
-    font-size: 16px;
+    font-size: 18px;
     color: #ccc;
     animation: fadeInUp 1.5s ease-in-out;
 }
 
 .flag-icon {
-    width: 24px;
+    width: 28px;
     height: auto;
     margin-right: 10px;
     border-radius: 4px;
@@ -1173,5 +1172,76 @@ html, body {
 
     body {
         padding-top: 0 !important; /* Remove header offset */
+    }
+}
+
+
+/* Hide mobile header by default (desktop) */
+.mobile-header {
+    display: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .desktop-header {
+        display: none; /* Hide the big header on mobile */
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(13, 13, 13, 0.9);
+        padding: 10px 20px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 10px rgba(0, 255, 153, 0.1);
+    }
+
+    .mobile-logo {
+        font-size: 22px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .mobile-logo .dot {
+        color: #00ff99;
+    }
+
+    .mobile-menu-toggle {
+        font-size: 24px;
+        color: #00ff99;
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+        z-index: 1001;
+    }
+
+    .mobile-nav a {
+        color: white;
+        padding: 10px 0;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover {
+        color: #00ff99;
+    }
+
+    .mobile-nav.open {
+        display: flex;
     }
 }
