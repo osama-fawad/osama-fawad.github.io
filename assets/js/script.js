@@ -58,4 +58,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     window.addEventListener("scroll", highlightSection);
     highlightSection();  // Run initially to set the correct active section
+
+    window.addEventListener('load', function () {
+        const loader = document.getElementById('loader-wrapper');
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 2000); // 2 seconds
+    });
+    
+    
 });
