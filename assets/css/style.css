@@ -952,23 +952,32 @@ nav ul li a {
 .site-disclaimer {
     position: fixed;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.7); /* semi-transparent */
-    color: #fff;
-    padding: 8px 20px;
-    font-size: 15px; /* you can increase this */
+    right: 15px;
+    background: rgba(0, 255, 153, 0.15);
+    color: #00ff99;
+    padding: 6px 14px;
     border-radius: 8px;
-    z-index: 9999;  /* ensures it's always on top */
-    box-shadow: 0 0 10px rgba(0,255,153,0.4);
-    pointer-events: none; /* ensures it's non-clickable */
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 9999; /* Highest to ensure it’s on top */
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+    pointer-events: none; /* Prevents accidental click blocking */
 }
 
-
+/* Fade animation */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
+
+@media (min-width: 768px) {
+    .site-disclaimer {
+      font-size: 15px;
+    }
+  }
+  
 
 /* Loader Styles */
 #loader-wrapper {
@@ -1083,10 +1092,86 @@ nav ul li a {
   100% { background-position: 0% 50%; }
 }
 
+/* -------------------------------------- */
+/* FIXES FOR MOBILE LAYOUT & RESPONSIVENESS */
+/* -------------------------------------- */
 
-.education-section,
-.work-section,
-.skills-section,
-.projects-section {
-    background: transparent; /* Let the background animation show through */
+/* Force no horizontal scroll */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero text wrapping fix */
+.hero-text h1,
+.hero-text h2,
+.highlight-text {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Adjust font sizes for smaller screens */
+@media (max-width: 768px) {
+    .hero-text h1 {
+        font-size: 26px;
+    }
+
+    .hero-text h2 {
+        font-size: 20px;
+    }
+
+    .highlight-text {
+        font-size: 20px;
+    }
+
+    /* Ensure button and icons scale down */
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .social-icons a {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+
+    /* Header bar buttons (navigation) */
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin: 5px 8px;
+    }
+
+    /* Reduce header height */
+    header {
+        padding: 10px 0;
+    }
+
+    .profile-image-container {
+        width: 250px;
+        height: auto;
+    }
+
+    .profile-image {
+        transform: scale(0.6);
+    }
+
+    .education-item, .work-item {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        display: none !important;
+    }
+
+    body {
+        padding-top: 0 !important; /* Remove header offset */
+    }
 }
