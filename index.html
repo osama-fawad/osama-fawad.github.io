@@ -51,65 +51,135 @@
 <!-- Education Section -->
 <section id="education" class="education-section">
     <div class="section-header">
-        <h1 class="section-title">Education</h1>
+      <h1 class="section-title">Education</h1>
     </div>
     <div class="container">
-        <div class="education-container">
-            <div class="education-item">
-                <a href="https://www.ube.fr/en/home/" target="_blank">
-                    <img src="assets/images/ube_logo_3.png" alt="Université Bourgogne Europe" class="education-logo">
-                </a>
-                <div class="education-content">
-                    <h2><a href="https://www.ube.fr/en/home/" target="_blank">Université Bourgogne Europe</a></h2>
-                    <h3>Master’s in Computer Vision & Robotics</h3>
-                    <p class="education-duration">France | 2024 - 2025</p>
-                </div>
+      <div class="education-container">
+  
+        <!-- Université Bourgogne Europe -->
+        <div class="education-item">
+          <a href="https://www.ube.fr/en/home/" target="_blank">
+            <img src="assets/images/ube_logo_3.png" alt="Université Bourgogne Europe" class="education-logo">
+          </a>
+          <div class="education-content">
+            <h2><a href="https://www.ube.fr/en/home/" target="_blank">Université Bourgogne Europe</a></h2>
+            <h3>Master’s in Computer Vision & Robotics</h3>
+            <p class="education-duration">France | 2024 - 2025</p>
+  
+            <div class="education-description">
+              <div class="education-description-block">
+                <strong>Notable Courses:</strong> Computer Vision, Machine Learning, Image Processing, Medical Imaging Analysis, Autonomous Robotics, Probabilistic Robotics, Signal Processing
+              </div>
             </div>
-
-            <div class="education-item">
-                <a href="https://www.giki.edu.pk/" target="_blank">
-                    <img src="assets/images/giki_logo.png" alt="GIKI" class="education-logo">
-                </a>
-                <div class="education-content">
-                    <h2><a href="https://www.giki.edu.pk/" target="_blank">Ghulam Ishaq Khan Institute of Engineering Sciences and Technology</a></h2>
-                    <h3>Bachelor’s in Engineering Sciences - Photonics</h3>
-                    <p class="education-duration">Pakistan | 2016 - 2020</p>
-                </div>
-            </div>
+          </div>
         </div>
+  
+        <!-- GIKI -->
+        <div class="education-item">
+          <a href="https://www.giki.edu.pk/" target="_blank">
+            <img src="assets/images/giki_logo.png" alt="GIKI" class="education-logo">
+          </a>
+          <div class="education-content">
+            <h2><a href="https://www.giki.edu.pk/" target="_blank">Ghulam Ishaq Khan Institute of Engineering Sciences and Technology</a></h2>
+            <h3>Bachelor’s in Engineering Sciences - Photonics</h3>
+            <p class="education-duration">Pakistan | 2016 - 2020</p>
+  
+            <div class="education-description">
+                <p><strong>Notable Courses:</strong> Applied Artificial Intelligence, Robotic Vision, Introduction to AI, Data Structures and Algorithms, Object Oriented Programming (OOP), Microprocessor Interfacing, Computer Architecture</p>
+              
+                <p><strong>Accreditation:</strong> Washington Accord Engineering Degree, Pakistan Engineering Council Accredited</p>
+              
+                <p><strong>Extra-curriculars:</strong> President at SPIE-GIKI Student Chapter (International Society of Optics and Photonics), Team Captain of GIKI Robotics Team Technobolt (participated in 7 national and international AI and Robotics competitions)</p>
+              
+                <p><strong>Thesis/Final Year Project:</strong> Bio-inspired Underwater Robot with Undulating Fin based propulsion, won the best final year project award at university, received grants by IGNITE (National ICT Funds by Government of Pakistan).</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+  
+      </div>
     </div>
-</section>
+  </section>
+  
 
 <!-- Work Experience Section -->
 <section id="work" class="work-section">
     <div class="section-header">
-        <h1 class="section-title">Work Experience</h1>
+      <h1 class="section-title">Work Experience</h1>
     </div>
     <div class="container">
-        <div class="work-container">
-            <div class="work-item">
-                <a href="https://gomotive.com/" target="_blank">
-                    <img src="assets/images/motive.jpg" alt="Motive" class="work-logo">
-                </a>
-                <div class="work-content">
-                    <h2><a href="https://gomotive.com/" target="_blank">Motive</a></h2>
-                    <h3>Machine Learning Software Engineer</h3>
-                    <p class="work-duration">Remote - USA | 2021 - 2024</p>
-                </div>
+      <div class="work-container">
+  
+        <!-- Motive -->
+        <div class="work-item">
+          <a href="https://gomotive.com/" target="_blank">
+            <img src="assets/images/motive.jpg" alt="Motive" class="work-logo">
+          </a>
+          <div class="work-content">
+            <h2><a href="https://gomotive.com/" target="_blank">Motive</a></h2>
+            <h3>Machine Learning Software Engineer</h3>
+            <p class="work-duration">Remote - USA | 2021 - 2024</p>
+            <div class="work-description">
+              <p><strong>Department:</strong> R&D</p>
+  
+              <p><strong>Summary:</strong> Part of the software team that deployed iterative improvements for the AI-Dashcam product, using both visual data and telematics sensor data to detect risky driving behaviors.</p>
+  
+              <p><strong>Machine Learning:</strong><br>
+                &bull; <strong>Computer Vision:</strong> Trained and deployed deep learning image classification, object detection models like <em>EfficientDet</em> and <em>YOLOX</em> with knowledge distillation.<br>
+                &bull; <strong>Activity Recognition:</strong> Used <em>Stateless LSTM/ConvLSTM</em> to generate embeddings from object detectors and apply temporal context.<br>
+                &bull; <strong>Vision Transformers:</strong> For activity boundary detection.
+              </p>
+  
+              <p><strong>Sensors:</strong> Applied <em>Fast Fourier Transform (FFT)</em> on IMU sensors to detect drowsiness patterns.</p>
+  
+              <p><strong>Data Engineering:</strong><br>
+                &bull; Built post-processing filters to reduce false positives (10% precision gain).<br>
+                &bull; Designed live <strong>SQL queries</strong> and dashboards to extract insights.<br>
+                &bull; Used <strong>AWS EC2, S3, Lambda</strong> to scale automated ML pipelines.
+              </p>
+  
+              <p><strong>Impact:</strong><br>
+                &bull; Conducted field performance testing, improving feature accuracy by <strong>35%</strong>.<br>
+                &bull; Worked cross-functionally with global product & analytics teams.
+              </p>
+  
+              <p><strong>Skills:</strong> Python, AWS (EC2, S3, Lambda), SQL, Git, Linux, PyTorch, Deep Learning, Snowflake</p>
             </div>
-
-            <div class="work-item">
-                <img src="assets/images/Pakistan Air Force Logo.png" alt="Facility of Advanced Robotics and Intelligent Systems (PAF 109-AED)" class="work-logo">
-                <div class="work-content">
-                    <h2>Facility of Advanced Robotics and Intelligent Systems (PAF 109-AED)</h2>
-                    <h3>R&D Engineer - Robotics</h3>
-                    <p class="work-duration">Pakistan | 2020 - 2021</p>
-                </div>
-            </div>
+          </div>
         </div>
+  
+        <!-- PAF Robotics -->
+        <div class="work-item">
+          <img src="assets/images/Pakistan Air Force Logo.png" alt="Facility of Advanced Robotics and Intelligent Systems (PAF 109-AED)" class="work-logo">
+          <div class="work-content">
+            <h2>Facility of Advanced Robotics and Intelligent Systems (PAF 109-AED)</h2>
+            <h3>R&D Engineer - Robotics</h3>
+            <p class="work-duration">Pakistan | 2020 - 2021</p>
+            <div class="work-description">
+  
+              <p><strong>Summary:</strong> Conducted military-grade research on robotics and AI systems, contributing to multiple proof-of-concept prototypes.</p>
+  
+              <p><strong>Projects:</strong><br>
+                &bull; Built <strong>training simulators</strong> and autonomous ground/aerial robots.<br>
+                &bull; Developed <strong>deep learning pipelines</strong> for perception and control.<br>
+                &bull; Implemented <strong>computer vision</strong> models on <em>Jetson TX2</em> and <em>Raspberry Pi</em>.
+              </p>
+  
+              <p><strong>Embedded Systems:</strong><br>
+                &bull; Integrated sensors using I2C, SPI, UART protocols.<br>
+                &bull; Designed <strong>sensor fusion</strong> algorithms (e.g., Extended Kalman Filter) for robotic navigation.
+              </p>
+  
+              <p><strong>Skills:</strong> Python, Embedded Systems, OpenCV, TensorFlow, Robotics, Jetson TX2, C++</p>
+            </div>
+          </div>
+        </div>
+  
+      </div>
     </div>
-</section>
-
+  </section>
+  
 <!-- Projects Section -->
 <section id="projects" class="projects-section">
     <div class="section-header">

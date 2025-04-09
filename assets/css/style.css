@@ -545,6 +545,15 @@ nav ul li a {
     text-align: left;
     flex: 1;
 }
+.work-description {
+    color: #ccc; /* light gray text */
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+.work-description p {
+    margin-bottom: 10px;
+}
 
 /* Company Name Hyperlink */
 .work-content h2 a {
