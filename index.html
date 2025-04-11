@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/images/website_logo.png">
 </head>
+
 <body>
     <div id="tsparticles"></div> <!-- Particle Background -->
     <div id="loader-wrapper">
@@ -26,7 +27,8 @@
                 <li><a href="#work">Work Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
-                <li><a href="#" class="btn">Hire Me</a></li>
+                <li><a href="#contact" class="btn">Contact</a></li>
+
             </ul>
         </nav>
     </div>
@@ -60,9 +62,12 @@
             <div class="location-info">
                 <img src="https://flagcdn.com/w40/fr.png" alt="France Flag" class="flag-icon">
                 <span class="location-text">Based in France</span>
+              </div>
+              <div class="availability-badge">
+                Open for Jobs, Freelance Projects or any Collaborations
               </div>              
             <h2 class="highlight-text">Artificial Intelligence & Robotics Engineer</h2>
-            <h2>I offer services in <span id="dynamic-text" class="green-text">Artificial Intelligence</span></h2>
+            <h2>I offer services in <span id="dynamic-text" class="green-text"></span></h2>
             <div class="btn-container">
                 <a href="assets/CV.pdf" class="btn">Download CV</a>
                 <div class="social-icons">
@@ -485,5 +490,54 @@ tsParticles.load("tsparticles", {
     ⚠️ This website is under development and content is subject to change.
   </div>
   
+<!-- tsParticles background for Contact -->
+<div id="tsparticles-contact"></div>
+
+<!-- Contact Section -->
+<section id="contact" class="connect-section">
+  <div class="contact-column connect-title">
+    <h2>Let's Connect</h2>
+  </div>
+
+  <div class="contact-column contact-info">
+    <div class="contact-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <span>Le Creusot, Bourgogne, France</span>
+      <img src="https://flagcdn.com/w20/fr.png" alt="France Flag">
+    </div>
+    
+    <div class="contact-item">
+      <i class="fas fa-envelope"></i>
+      <a href="mailto:osamafawad@gmail.com">osamafawad@gmail.com</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fab fa-whatsapp"></i>
+      <a href="https://wa.me/33666101247" target="_blank">+33-666-101247</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fab fa-github"></i>
+      <a href="https://github.com/osama-fawad" target="_blank">osama-fawad</a>
+    </div>
+
+    <div class="contact-item">
+      <i class="fab fa-linkedin"></i>
+      <a href="https://www.linkedin.com/in/osamafawad/" target="_blank">osamafawad</a>
+    </div>
+  </div>
+
+  <div class="contact-column contact-form">
+    <form action="https://formspree.io/f/xldjayvz" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" required></textarea>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </div>
+</section>
+
+  
+
 </body>
 </html>

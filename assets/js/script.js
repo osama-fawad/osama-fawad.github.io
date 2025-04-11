@@ -1,25 +1,25 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Portfolio Loaded Successfully!");
 
-    const expertiseList = [
-        "Artificial Intelligence",
-        "Computer Vision",
-        "Robotics",
-        "LLM",
-        "Perception",
-        "Deep Learning",
-        "Software Engineering"
-    ];
+// const expertiseList = [
+//     "Artificial Intelligence",
+//         "Computer Vision",
+//         "Robotics",
+//         "LLM",
+//         "Perception",
+//         "Deep Learning",
+//         "Software Engineering"
+//     ];
 
-    let currentIndex = 0;
-    const dynamicText = document.getElementById("dynamic-text");
+//     let currentIndex = 0;
+//     const dynamicText = document.getElementById("dynamic-text");
 
-    function changeExpertise() {
-        dynamicText.textContent = expertiseList[currentIndex];
-        currentIndex = (currentIndex + 1) % expertiseList.length;
-    }
+//     function changeExpertise() {
+//         dynamicText.textContent = expertiseList[currentIndex];
+//         currentIndex = (currentIndex + 1) % expertiseList.length;
+//     }
 
-    setInterval(changeExpertise, 1500);
+//     setInterval(changeExpertise, 1500);
 
     // Scroll Progress Bar
     const scrollProgress = document.createElement("div");
@@ -70,6 +70,41 @@ document.addEventListener('DOMContentLoaded', function () {
             loader.style.display = 'none';
         }, 2000); // 2 seconds
     });
+
+    const words = ['Computer Vision', 'Robotics', 'Deep Learning', 'Software Engineering', 'LLMs'];
+let i = 0;
+let j = 0;
+let isDeleting = false;
+const speed = 100;
+const pause = 2000;
+
+const el = document.getElementById('dynamic-text');
+
+function typeEffect() {
+    const word = words[i];
+    
+    if (isDeleting) {
+        el.innerHTML = word.substring(0, j--);
+    } else {
+        el.innerHTML = word.substring(0, j++);
+    }
+
+    if (!isDeleting && j === word.length + 1) {
+        isDeleting = true;
+        setTimeout(typeEffect, pause);
+        return;
+    }
+
+    if (isDeleting && j === 0) {
+        isDeleting = false;
+        i = (i + 1) % words.length;
+    }
+
+    setTimeout(typeEffect, isDeleting ? speed / 2 : speed);
+}
+
+typeEffect();
+
     
     
 });
