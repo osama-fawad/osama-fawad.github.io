@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* ── Base Resets ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #f0f0f0;
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ff99;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc77;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(0, 255, 153, 0.2);
+  color: #00ff99;
+}
+
+/* ── Scroll Progress Bar ── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00ff99, #00cc77);
+  z-index: 999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(0, 255, 153, 0.6);
+}
+
+/* ── Neon Glow Text ── */
+.text-glow {
+  text-shadow: 0 0 20px rgba(0, 255, 153, 0.5);
+}
+
+/* ── Glassmorphism Card ── */
+.glass {
+  background: rgba(22, 22, 22, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* ── Accent Border ── */
+.border-accent-left {
+  border-left: 3px solid #00ff99;
+}
+
+/* ── Tag / Badge ── */
+.tech-tag {
+  @apply inline-block px-2 py-0.5 text-xs font-mono rounded
+         bg-accent-glow text-accent border border-accent/20
+         hover:border-accent/50 transition-colors duration-200;
+}
+
+/* ── Section entrance animations ── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Particle canvas layer ── */
+#tsparticles {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Focus ring ── */
+*:focus-visible {
+  outline: 2px solid #00ff99;
+  outline-offset: 2px;
+}
+
+/* ── Photo glow pulse ── */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 1.5px rgba(0,255,153,0.50),
+                0 0 28px  6px rgba(0,255,153,0.25),
+                0 0 70px 20px rgba(0,255,153,0.10);
+  }
+  50% {
+    box-shadow: 0 0 0 1.5px rgba(0,255,153,0.80),
+                0 0 40px 14px rgba(0,255,153,0.45),
+                0 0 90px 32px rgba(0,255,153,0.20);
+  }
+}

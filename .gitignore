@@ -1,0 +1,8 @@
+node_modules
+.next
+out
+*.Zone.Identifier
+.env
+.env.local
+.env*.local
+*.TMP

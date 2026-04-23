@@ -1,0 +1,25 @@
+---
+description: Keep home page sections in sync with their dedicated pages
+alwaysApply: true
+---
+
+# Home Page ↔ Section Page Sync
+
+Every content section exists in **two places** that must always stay identical:
+
+| Section   | Dedicated page                                      | Home page embed (HomeClient.tsx)         |
+|-----------|-----------------------------------------------------|------------------------------------------|
+| Education | `src/app/[locale]/about/page.tsx`                   | `#education` block in `HomeClient.tsx`   |
+| Experience| `src/app/[locale]/experience/page.tsx`              | `#experience` block in `HomeClient.tsx`  |
+| Projects  | `src/app/[locale]/projects/page.tsx`                | `#projects` block in `HomeClient.tsx`    |
+| Skills    | `src/app/[locale]/skills/page.tsx`                  | `#skills` block in `HomeClient.tsx`      |
+| Awards    | `src/app/[locale]/awards/page.tsx`                  | `#awards` block in `HomeClient.tsx`      |
+| Contact   | `src/app/[locale]/contact/ContactPageContent.tsx`   | `#contact` block in `HomeClient.tsx`     |
+
+## Rule
+
+Whenever a change is made to **either** location, **always** apply the equivalent change to the other location in the same edit session — layout, styling, component structure, content, and data must remain in sync.
+
+- Changing a card layout on the Skills page → update the `#skills` block in `HomeClient.tsx` too.
+- Changing a filter tab on the Projects home block → update `projects/page.tsx` too.
+- Content lives in `messages/en.json` and `messages/fr.json` — one edit there covers both automatically.

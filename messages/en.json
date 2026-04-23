@@ -1,0 +1,455 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "Education",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "awards": "Awards",
+    "contact": "Contact",
+    "downloadCV": "Download CV",
+    "available": "Open to opportunities"
+  },
+  "home": {
+    "greeting": "Hello, I'm",
+    "name": "Muhammad Osama Fawad",
+    "tagline": "I build at the intersection of",
+    "roles": ["Computer Vision", "Robotics", "Deep Learning", "LLMs & Agents", "Autonomous Systems"],
+    "description": "Computer Vision and AI Engineer with **5+ years of industrial R&D experience** — from shipping ML models to **300K+ fleet customers** at **Motive** (Forbes Cloud 100, VTTI-ranked #1 AI dashcam) to prototyping AR surgical guidance at **Cochlear** (one of the biggest medical tech companies). MSc in Computer Vision & Robotics (UBE / UdG, Erasmus Scholar). Specialized in **Deep Learning**, **3D Computer Vision**, **SLAM**, **ROS**, **LLMs** and **Agentic AI** — from model development to production deployment on cloud and edge.",
+    "ctaContact": "Contact",
+    "ctaProjects": "Projects",
+    "ctaCV": "Download CV",
+    "locationBadge": "Based in France 🇫🇷",
+    "openTo": "Open to: AI/ML, Computer Vision, Robotics, and AI Software Engineering roles",
+    "available": "Available for Work",
+    "highlights": {
+      "industry": { "value": "5+ Years", "label": "Industrial R&D Experience", "sublabel": "AI · CV · Robotics" },
+      "masters":  { "value": "M.Sc.",    "label": "Computer Vision & Robotics", "sublabel": "Erasmus Mundus Scholar" }
+    }
+  },
+  "about": {
+    "title": "Education",
+    "subtitle": "Academic background & training",
+    "timeline": [
+      {
+        "id": "girona",
+        "institution": "University of Girona (UdG)",
+        "degree": "Erasmus+ Exchange — M.Sc. Intelligent Robotics Systems",
+        "location": "Girona, Spain 🇪🇸",
+        "period": "Sep 2025 – Dec 2025",
+        "description": "Erasmus+ semester exchange as the 3rd semester of the joint European Master's programme in Computer Vision & Robotics.",
+        "courses": [
+          "Reinforcement Learning",
+          "Advanced Machine Learning",
+          "3D Perception & Sensor Fusion"
+        ],
+        "highlights": [
+          "**Erasmus+ Exchange**, co-funded by the **European Union** 🇪🇺",
+          "3rd Semester (2nd year) of the joint European Masters in Computer Vision & Robotics"
+        ],
+        "logo": "/images/udg_logo.png",
+        "url": "https://www.udg.edu/en/masters-en-tecnologia/mirs",
+        "type": "exchange"
+      },
+      {
+        "id": "ube",
+        "institution": "Université Bourgogne Europe (UBE)",
+        "degree": "M.Sc. Computer Vision & Robotics (VIBOT)",
+        "location": "Le Creusot, Bourgogne, France 🇫🇷",
+        "period": "Sep 2024 – Jun 2026",
+        "description": "Joint European Master's programme in Computer Vision, Robotics and Intelligent Systems across multiple European universities.",
+        "courses": [
+          "Computer Vision",
+          "Advanced Machine Learning",
+          "Autonomous Robotics",
+          "3D Perception & Sensor Fusion",
+          "Reinforcement Learning",
+          "Medical Imaging Analysis",
+          "Signal Processing"
+        ],
+        "highlights": [
+          "**Erasmus Scholar** — Erasmus+ funded semester exchange at University of Girona, Spain",
+          "Thesis: **Augmented Reality (AR) Assistive Surgery** for Cochlear Implants at [Cochlear Ltd](https://www.cochlear.com/au/en/home)"
+        ],
+        "logo": "/images/ube_logo_3.png",
+        "url": "https://www.ube.fr/en/home/",
+        "type": "master"
+      },
+      {
+        "id": "giki",
+        "institution": "GIK Institute of Engineering Sciences (GIKI)",
+        "degree": "B.Sc. Engineering Sciences — Photonics and Optical Engineering",
+        "location": "Topi, Pakistan 🇵🇰",
+        "period": "2016 – 2020",
+        "description": "Accredited engineering programme in Photonics and Optical Engineering with specialisation in AI, robotics and embedded systems.",
+        "courses": [
+          "Introduction to Artificial Intelligence",
+          "Applied Artificial Intelligence",
+          "Robotic Vision",
+          "Data Structures & Algorithms",
+          "Object-Oriented Programming (OOP)",
+          "Microprocessor Interfacing"
+        ],
+        "highlights": [
+          "Accreditation: [Washington Accord](https://www.internationalengineeringalliance.org/accords/washington-accord) & Pakistan Engineering Council (PEC)",
+          "**President** at [SPIE](https://spie.org/) GIKI Student Chapter & **Team Captain**, GIKI Robotics Team (Technobolt)",
+          "Final Year Project: **Bio-Inspired Underwater Robot** with Undulating Fin Based Locomotion — **1st Position in University**",
+          "Won **IGNITE Grant** (National ICT Funds by Government of Pakistan) for Final Year Project"
+        ],
+        "logo": "/images/giki_logo.png",
+        "url": "https://www.giki.edu.pk",
+        "type": "bachelor"
+      }
+    ]
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Industry roles & research positions",
+    "jobs": [
+      {
+        "id": "cochlear",
+        "company": "Cochlear Ltd",
+        "role": "Computer Vision Engineer — R&D",
+        "location": "France 🇫🇷",
+        "period": "Feb 2026 – Present",
+        "description": "Developing a first-of-its-kind AR surgical guidance system at one of the world's biggest medical tech companies — CI surgery, dubbed the **'blind surgery'**, is performed by very few specialists, and with **3× more procedures needed than surgeons available by 2030**, this system enables non-specialists to operate, directly addressing the global CI surgeon shortage.",
+        "highlights": [
+          "Built **Visual-Inertial SLAM** (deep learning + geometric approaches, RGB-D + IMU) for real-time dense **3D Reconstruction**; automatic **3D CT-to-scene registration**; neural segmentation for live **AR overlay** of anatomical structures",
+          "Evaluated **ORB-SLAM3 + TSDF Fusion** and **MASt3R-SLAM** with loop closure for surgical-precision-grade drift correction",
+          "Replaced all prior infeasible prototypes — **20× cost reduction** through algorithm-first design"
+        ],
+        "tech": ["Python", "PyTorch", "C++", "ORB-SLAM3", "MASt3R-SLAM", "TSDF Fusion", "Intel RealSense", "RGB-D Camera", "IMU", "ICP Registration", "Optical Tracking", "Meta Quest 3", "ROS2", "AR", "Signal Processing"],
+        "logo": "/images/cochlear_logo.png",
+        "url": "https://www.cochlear.com/au/en/home"
+      },
+      {
+        "id": "bittech",
+        "company": "BitTech Solutions",
+        "role": "Senior AI Engineer",
+        "location": "Remote 🌐",
+        "period": "Sep 2025 – Feb 2026",
+        "description": "Led end-to-end AI delivery for **10+ enterprise clients** as solutions architect and team lead — from system design and client scoping to **cloud deployment**, achieving **200% increase in deal closing**.",
+        "highlights": [
+          "Built production **RAG pipelines** (LangChain, LlamaIndex, Ollama) with **citation-accurate retrieval** for enterprise customer support",
+          "Developed **Agentic AI** and workflow automation systems using **LangGraph**, MCP, and n8n",
+          "Defined technical architecture, scope, and **cloud deployment strategy** across diverse enterprise AI use cases"
+        ],
+        "tech": ["LangChain", "LangGraph", "LlamaIndex", "RAG", "OpenAI", "n8n", "Python", "Docker", "Ollama", "Azure"],
+        "logo": "/images/bittech_logo.jpeg",
+        "url": "https://bittechsol.com/"
+      },
+      {
+        "id": "motive",
+        "company": "Motive",
+        "role": "Software Engineer, Machine Learning — R&D",
+        "location": "Remote / USA 🇺🇸",
+        "period": "Jun 2021 – Sep 2024",
+        "description": "**3+ years** building production AI dashcam for driver safety — at a **Forbes Cloud 100** company, **VTTI-ranked #1 AI Dashcam**, deployed to **300K+ commercial fleets** across North America.",
+        "highlights": [
+          "**Computer Vision Models**: Trained and deployed **EfficientDet & YoloX** with **Knowledge Distillation**; implemented Stateless **LSTM/ConvLSTM** on frame-level detector embeddings for real-time **Activity Recognition**",
+          "Developed heuristics-based post-processing filters — **10% increase in feature precision**; FFT on telematics data for drowsiness detection",
+          "**Data Engineering & MLOps**: Automated AWS pipelines (EC2, S3, Lambda) for large-scale extraction; SQL queries and dashboards — drove **35% cumulative accuracy gain** and **22% reduction in client accident rates**"
+        ],
+        "tech": ["PyTorch", "TensorFlow", "CUDA", "Python", "EfficientDet", "YOLOX", "LSTM/ConvLSTM", "SQL", "Redash", "AWS (EC2/S3/Lambda)"],
+        "logo": "/images/motive.jpg",
+        "url": "https://gomotive.com"
+      },
+      {
+        "id": "paf",
+        "company": "Facility of Advanced Robotics and Intelligent Systems (109-PAF)",
+        "role": "R&D Engineer — Robotics & Perception",
+        "location": "Pakistan 🇵🇰",
+        "period": "Aug 2020 – Jun 2021",
+        "description": "",
+        "highlights": [
+          "Researched, prototyped and deployed **4+ robotics & perception systems** including autonomous ground vehicles, aerial drones, and training simulators",
+          "Implemented **Extended Kalman Filter** sensor fusion across IMU, camera, and ranging sensors for robust localisation",
+          "Deployed deep learning inference on **Nvidia Jetson TX2** for real-time embedded perception pipelines",
+          "Full hardware integration via I2C, SPI, UART, RS232 communication protocols"
+        ],
+        "tech": ["Python", "C++", "ROS", "OpenCV", "EKF / Kalman Filter", "Nvidia Jetson TX2", "Raspberry Pi", "Embedded Systems", "IMU"],
+        "logo": "/images/Pakistan Air Force Logo.png",
+        "url": ""
+      }
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Research & engineering work",
+    "filters": {
+      "all": "All",
+      "cv3d": "Computer Vision & 3D",
+      "robotics": "Robotics",
+      "ai": "AI & LLMs",
+      "generative": "Generative AI"
+    },
+    "items": [
+      {
+        "id": "sfm",
+        "title": "3D Reconstruction via Incremental SfM",
+        "category": "cv3d",
+        "description": "Built a full Structure-from-Motion pipeline from scratch — feature extraction, matching, RANSAC-based outlier rejection, incremental bundle adjustment — to recover dense 3D point clouds from unordered image sets.",
+        "tech": ["Python", "OpenCV", "COLMAP", "NumPy", "Open3D"],
+        "image": "/projects/sfm-point-cloud.png",
+        "github": "https://github.com/osama-fawad/SfM-Structure-from-Motion-3D-Reconstruction-from-Multiple-2D-Images",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": true
+      },
+      {
+        "id": "vislam",
+        "title": "Visual-Inertial SLAM + Dense 3D Reconstruction",
+        "category": "cv3d",
+        "description": "Developed visual-inertial SLAM and dense reconstruction pipelines with ORB-SLAM3 + TSDF fusion and MASt3R-SLAM for precision-grade 3D mapping.",
+        "tech": ["C++", "Python", "ORB-SLAM3", "TSDF", "MASt3R-SLAM", "OpenCV"],
+        "image": "/projects/orbslam3-vislam.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": true
+      },
+      {
+        "id": "rag",
+        "title": "RAG-based Self-hosted LLM for Enterprise Support",
+        "category": "ai",
+        "description": "Developed production RAG systems for enterprise support with citation-aware retrieval and locally hosted LLM stacks.",
+        "tech": ["LangChain", "LlamaIndex", "FAISS", "ChromaDB", "Ollama", "Python"],
+        "image": "/projects/rag-assistant-ui.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": true
+      },
+      {
+        "id": "n8n",
+        "title": "Multi-App ETL Autonomous AI Workspace (n8n)",
+        "category": "ai",
+        "description": "Built an autonomous multi-app ETL workflow orchestration system in n8n — integrating REST APIs, LLMs, and AI agents for enterprise operations and AI-assisted reporting pipelines.",
+        "tech": ["n8n", "ETL", "REST APIs", "LangChain", "Automation", "PostgreSQL"],
+        "image": "/projects/n8n-etl-workflow.png",
+        "github": "",
+        "demo": "https://simple-zenobia-e5e.notion.site/Multi-App-ETL-Autonomous-AI-Workspace-Orchestrator-n8n-e0340e4c37f54984a822bb9494522314",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "underwater-robot",
+        "title": "Bio-Inspired Underwater Robot",
+        "category": "robotics",
+        "description": "Designed an underwater robot with undulating-fin locomotion and embedded sensing/control for bio-inspired robotic propulsion.",
+        "tech": ["Robotics", "Embedded Systems", "Control", "Signal Processing"],
+        "image": "/projects/underwater-robot-real.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "gan",
+        "title": "BigGAN-lite for Synthetic Face Generation",
+        "category": "generative",
+        "description": "Created a lightweight BigGAN variant for multi-attribute synthetic face generation on CelebA while reducing model complexity.",
+        "tech": ["PyTorch", "Python", "BigGAN", "CelebA", "CUDA", "NumPy"],
+        "image": "/projects/biggan-architecture.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "satellite-analysis",
+        "title": "Satellite Imagery Analysis Pipeline",
+        "category": "cv3d",
+        "description": "End-to-end analysis of Sentinel-2 satellite imagery — NDVI/NDWI vegetation and water detection, YOLOv8 building detection with grid-based tile splitting, and interactive Leaflet.js map with a FastAPI backend.",
+        "tech": ["Python", "YOLOv8", "Sentinel-2", "FastAPI", "Leaflet.js", "OpenCV", "NumPy"],
+        "image": "/projects/satellite-ndvi.png",
+        "github": "https://github.com/osama-fawad/Satellite-Imagery-Analysis-Pipeline-Python",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "dubbing",
+        "title": "Multilingual Video Dubbing + GAN Lip-Sync",
+        "category": "generative",
+        "description": "End-to-end AI dubbing pipeline: Faster Whisper ASR → NLLB-200 translation (200+ languages) → Edge TTS with elastic timeline alignment → Wav2Lip GAN lip-sync. Supports YouTube and local video sources.",
+        "tech": ["PyTorch", "Faster Whisper", "NLLB-200", "Wav2Lip", "Edge TTS", "Python", "CUDA", "FFmpeg"],
+        "image": "/projects/lipsync-pipeline.png",
+        "github": "https://github.com/osama-fawad/multi-language-dubbing-lipsync",
+        "demo": "https://simple-zenobia-e5e.notion.site/Multi-Language-Dubbing-Lip-Sync-AI-Pipeline-a1cf717fa4fe4097894e7274fb540182",
+        "paper": "",
+        "video": "",
+        "featured": true
+      },
+      {
+        "id": "turtlebot",
+        "title": "TurtleBot LiDAR Obstacle Avoidance with RL",
+        "category": "robotics",
+        "description": "Trained a TurtleBot using reinforcement learning for LiDAR-based obstacle avoidance and autonomous path planning.",
+        "tech": ["Python", "MuJoCo", "PPO", "SAC", "ROS2", "LiDAR"],
+        "image": "/projects/turtlebot-sim.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "activity-recognition",
+        "title": "Activity Recognition with YOLO Embeddings + LSTM",
+        "category": "ai",
+        "description": "Built activity recognition using YOLO embeddings fed into LSTM sequence models for dynamic spatio-temporal behavior understanding.",
+        "tech": ["YOLO", "LSTM", "Python", "Computer Vision"],
+        "image": "/projects/convlstm-activity-model.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "job-agent",
+        "title": "Job Application Agent",
+        "category": "ai",
+        "description": "Developed an agent that searches relevant roles, tailors CV content, and automates parts of job applications across platforms.",
+        "tech": ["LangChain", "LangGraph", "MCP", "Python", "Automation", "LLMs"],
+        "image": "/projects/job-application-bot-ui.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      }
+    ]
+  },
+  "skills": {
+    "title": "Skills",
+    "subtitle": "Technical stack across ML, Computer Vision, Robotics & AI",
+    "categories": [
+      {
+        "id": "languages",
+        "title": "Programming & Systems",
+        "icon": "code",
+        "skills": ["Python", "C++", "CUDA", "SQL", "Bash / Linux", "Git"]
+      },
+      {
+        "id": "ml",
+        "title": "Machine Learning & Deep Learning",
+        "icon": "brain",
+        "skills": ["PyTorch", "TensorFlow", "OpenCV", "CNNs", "Vision Transformers (ViT, DINO)", "Object Detection (YOLOx, EfficientDet)", "Image Segmentation (SAM)", "LSTM / ConvLSTM", "Knowledge Distillation", "Model Quantization & Optimization", "ONNX", "HuggingFace"]
+      },
+      {
+        "id": "cv3d",
+        "title": "3D Computer Vision & SLAM",
+        "icon": "eye",
+        "skills": ["Visual-Inertial Odometry", "ORB-SLAM3", "MASt3R-SLAM", "Structure-from-Motion (SfM)", "Stereo Vision", "Depth Estimation", "ICP Registration", "TSDF Fusion", "Point Cloud Processing", "Open3D", "PCL", "Intel RealSense", "Gaussian Splatting", "Augmented Reality", "3D CT Registration"]
+      },
+      {
+        "id": "robotics",
+        "title": "Robotics & Autonomous Systems",
+        "icon": "robot",
+        "skills": ["ROS / ROS2", "SLAM", "Extended Kalman Filter (EKF)", "Sensor Fusion (IMU, LiDAR, Camera)", "Reinforcement Learning (PPO, SAC)", "Path Planning (A*)", "URDF / XACRO", "Nvidia Jetson TX2", "Raspberry Pi", "Embedded Systems", "MuJoCo", "Gazebo", "Sim-to-Real Transfer"]
+      },
+      {
+        "id": "ai_llm",
+        "title": "LLMs, RAG & Agentic AI",
+        "icon": "sparkles",
+        "skills": ["LangChain", "LangGraph", "LlamaIndex", "RAG Pipelines", "Agentic AI", "Vector Databases (ChromaDB, FAISS, Pinecone)", "BGE-M3", "Ollama", "VLMs", "Whisper", "Multimodal AI", "Fine-tuning (LoRA / PEFT)", "MCP", "Prompt Engineering"]
+      },
+      {
+        "id": "mlops",
+        "title": "MLOps & Cloud",
+        "icon": "cloud",
+        "skills": ["AWS (EC2, S3, Lambda, SageMaker)", "Azure", "Docker", "GitHub Actions", "CI/CD", "MLflow", "Kubernetes", "DVC", "n8n", "Edge Deployment"]
+      },
+      {
+        "id": "data",
+        "title": "Data Engineering & Analysis",
+        "icon": "chart",
+        "skills": ["Snowflake", "SQL", "ETL Pipelines", "Redash", "Dashboard Design", "Field Performance Analysis", "AWS Lambda Pipelines", "FastAPI"]
+      }
+    ]
+  },
+  "awards": {
+    "title": "Awards & Recognition",
+    "subtitle": "Scholarships, grants & competition wins",
+    "items": [
+      {
+        "id": "erasmus",
+        "title": "Erasmus+ Scholar",
+        "org": "European Union",
+        "year": "2025",
+        "description": "Awarded the Erasmus+ scholarship by the European Union for a semester exchange at the University of Girona, Spain, studying M.Sc. Intelligent Robotics Systems — as part of the joint European Master's programme in Computer Vision & Robotics.",
+        "type": "scholarship"
+      },
+      {
+        "id": "fyp_best",
+        "title": "Best Final Year Project Award",
+        "org": "GIK Institute of Engineering Sciences and Technology",
+        "year": "2020",
+        "description": "Institute-wide Best FYP Award for the Bio-Inspired Underwater Robot with undulating-fin based locomotion.",
+        "type": "award"
+      },
+      {
+        "id": "ignite",
+        "title": "IGNITE Grant",
+        "org": "National ICT R&D Fund by Government of Pakistan",
+        "year": "2020",
+        "description": "Won the maximum attainable IGNITE grant for the Bio-Inspired Underwater Robot Final Year Project at GIKI.",
+        "type": "grant"
+      },
+      {
+        "id": "neo18",
+        "title": "1st Place — RoboMaze Module",
+        "org": "NEO'18 Engineering Competition",
+        "year": "2018",
+        "description": "Won first place in the Maze Solving Robot challenge at NEO'18, implementing a custom A* pathfinding algorithm on an autonomous robot under real-time constraints.",
+        "type": "competition"
+      },
+      {
+        "id": "neo20",
+        "title": "Runner-up — AI Module",
+        "org": "NEO'20 Engineering Competition",
+        "year": "2020",
+        "description": "Runner-up in the AI challenge with a Miniature Self-Driving Car project at NEO'20.",
+        "type": "competition"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's work together",
+    "description": "I'm actively looking for opportunities in ML/CV Engineering, Robotics, and AI/LLM roles. Feel free to reach out.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent! I'll get back to you soon.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "location": "Antibes, Provence-Alpes-Côte d'Azur, France 🇫🇷",
+      "email": "osamafawad@gmail.com",
+      "whatsapp": "+33 6 66 10 12 47",
+      "availability": "Available for collaborations"
+    },
+    "social": {
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "footer": {
+    "built": "Built with Next.js & Framer Motion",
+    "rights": "All rights reserved"
+  }
+}
