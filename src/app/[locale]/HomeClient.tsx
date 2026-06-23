@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 
@@ -82,9 +82,18 @@ const AWARD_TYPE: Record<string, { label: string; color: string; bg: string; ico
 };
 
 /* ─── Section divider ────────────────────────────────────────────────────── */
+function computePhotoSize(viewportWidth: number) {
+  if (viewportWidth >= 768) return 372;
+  return Math.max(240, Math.min(372, viewportWidth - 72));
+}
+
+function computeCompactPhotoSize(viewportWidth: number) {
+  return Math.max(150, Math.min(200, Math.floor(viewportWidth * 0.44)));
+}
+
 function Divider() {
   return (
-    <div className="max-w-7xl mx-auto px-6">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6">
       <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
     </div>
   );
@@ -121,6 +130,19 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
   const [selectedProject, setSelectedProject] = useState<ProjectData | null>(null);
   const [projectFilter, setProjectFilter]     = useState<Category>('all');
   const [photoReplayKey, setPhotoReplayKey]   = useState(0);
+  const [photoSize, setPhotoSize]             = useState(372);
+  const [compactPhotoSize, setCompactPhotoSize] = useState(140);
+
+  useEffect(() => {
+    const updatePhotoSize = () => {
+      const w = window.innerWidth;
+      setPhotoSize(computePhotoSize(w));
+      setCompactPhotoSize(computeCompactPhotoSize(w));
+    };
+    updatePhotoSize();
+    window.addEventListener('resize', updatePhotoSize);
+    return () => window.removeEventListener('resize', updatePhotoSize);
+  }, []);
 
   const roles      = t.raw('roles') as string[];
   const highlights = t.raw('highlights') as Record<string, { value: string; label: string; sublabel?: string }>;
@@ -145,10 +167,10 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
 
       {/* ═══════════════════════════════════════════════════════ HERO */}
       <div id="hero" className="min-h-[calc(100vh-4rem)] flex flex-col">
-        <div className="flex-1 max-w-7xl mx-auto px-6 w-full py-16 grid md:grid-cols-2 gap-12 items-center">
+        <div className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 w-full py-10 sm:py-16 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
           {/* Left: Text */}
-          <div className="relative z-10">
+          <div className="relative z-10 min-w-0">
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
@@ -163,16 +185,59 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.05 }}
-              className="text-text-secondary text-lg mb-1"
+              className="hidden md:block text-text-secondary text-lg mb-1"
             >
               {t('greeting')}
             </motion.p>
+
+            {/* Mobile: name left, compact photo right */}
+            <div className="flex items-center gap-2 mb-6 md:mb-0 md:hidden">
+              <div className="flex-1 min-w-0 flex flex-col justify-center py-1 border-l-2 border-accent/50 pl-3.5">
+                <motion.p
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.4, delay: 0.05 }}
+                  className="text-text-secondary text-xl mb-2"
+                >
+                  {t('greeting')}
+                </motion.p>
+                <motion.h1
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="font-bold tracking-tight leading-[1.1]"
+                >
+                  <span className="block text-3xl font-medium text-text-secondary mb-0.5">Muhammad</span>
+                  <span className="block text-3xl font-bold text-text-primary mb-0.5">Osama</span>
+                  <span className="block text-[2rem] font-bold text-accent leading-none">Fawad</span>
+                </motion.h1>
+              </div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.15 }}
+                className="flex-shrink-0 flex items-center justify-center"
+              >
+                <PhotoReveal
+                  key={`compact-${photoReplayKey}-${compactPhotoSize}`}
+                  src="/images/osama_headshot.png"
+                  alt="Osama Fawad"
+                  photoSize={compactPhotoSize}
+                  compact
+                  imgStyle={{
+                    filter: 'brightness(1.05) contrast(1.06) saturate(0.92)',
+                    transform: 'scale(1.06) translateY(7%)',
+                    transformOrigin: 'center',
+                  }}
+                />
+              </motion.div>
+            </div>
 
             <motion.h1
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-snug"
+              className="hidden md:block text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 leading-snug"
             >
               <span className="block text-3xl md:text-[2.6rem] lg:text-5xl font-medium text-text-secondary mb-0.5">Muhammad</span>
               <span className="block text-3xl md:text-[2.6rem] lg:text-5xl font-bold text-text-primary mb-0.5">Osama</span>
@@ -203,19 +268,19 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.35 }}
-              className="flex flex-nowrap items-stretch gap-5 mb-8"
+              className="flex flex-wrap sm:flex-nowrap items-stretch gap-4 sm:gap-5 mb-8"
             >
               {Object.entries(highlights).map(([key, item], i, arr) => (
-                <div key={key} className="flex items-stretch gap-5 flex-1">
-                  <div className="flex flex-col justify-center border-l-2 border-accent/60 pl-3 flex-1">
+                <div key={key} className="flex items-stretch gap-4 sm:gap-5 flex-1 min-w-[9.5rem] sm:min-w-0 basis-[calc(50%-0.5rem)] sm:basis-auto">
+                  <div className="flex flex-col justify-center border-l-2 border-accent/60 pl-3 flex-1 min-w-0">
                     <span className={`font-bold text-accent leading-none mb-0.5 ${
                       key === 'industry' ? 'text-2xl' : 'text-xl'
                     }`}>
                       {item.value}
                     </span>
-                    <span className="text-[11px] font-semibold text-text-secondary leading-snug whitespace-nowrap">{item.label}</span>
+                    <span className="text-[11px] font-semibold text-text-secondary leading-snug sm:whitespace-nowrap">{item.label}</span>
                     {item.sublabel && (
-                      <span className="text-[10px] text-text-muted font-mono mt-0.5 whitespace-nowrap">{item.sublabel}</span>
+                      <span className="text-[10px] text-text-muted font-mono mt-0.5 sm:whitespace-nowrap">{item.sublabel}</span>
                     )}
                   </div>
                   {i < arr.length - 1 && (
@@ -306,18 +371,18 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
             </motion.div>
           </div>
 
-          {/* Right: Photo — stereo point-cloud reconstruction */}
+          {/* Right: Photo — desktop only (full stereo reconstruction) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative h-[460px] md:h-[580px] lg:h-[640px] flex flex-col items-center justify-center gap-3"
+            className="relative hidden md:flex w-full max-w-full overflow-hidden flex-col items-center justify-center gap-3 md:h-[580px] lg:h-[640px]"
           >
             <PhotoReveal
-              key={photoReplayKey}
+              key={`${photoReplayKey}-${photoSize}`}
               src="/images/osama_headshot.png"
               alt="Osama Fawad"
-              photoSize={372}
+              photoSize={photoSize}
               imgStyle={{
                 filter: 'brightness(1.05) contrast(1.06) saturate(0.92)',
                 transform: 'scale(1.06) translateY(7%)',
@@ -360,7 +425,7 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
       {/* ══════════════════════════════════════════════════ EDUCATION
            Mirrors: about/page.tsx → max-w-4xl mx-auto px-6 py-16        */}
       <Divider />
-      <section id="education" className="max-w-7xl mx-auto px-6 py-16 w-full">
+      <section id="education" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         <SectionHeader title={tAbout('title')} subtitle={tAbout('subtitle')} />
         <div className="relative">
           {educationTimeline.map((item, index) => (
@@ -386,7 +451,7 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
       {/* ════════════════════════════════════════════════ EXPERIENCE
            Mirrors: experience/page.tsx → max-w-4xl mx-auto px-6 py-16  */}
       <Divider />
-      <section id="experience" className="max-w-7xl mx-auto px-6 py-16 w-full">
+      <section id="experience" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         <SectionHeader title={tExp('title')} subtitle={tExp('subtitle')} />
         <div className="relative">
           {jobs.map((job, index) => (
@@ -412,11 +477,11 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
       {/* ══════════════════════════════════════════════════ PROJECTS
            Mirrors: projects/page.tsx → max-w-7xl mx-auto px-6 py-16    */}
       <Divider />
-      <section id="projects" className="max-w-7xl mx-auto px-6 py-16 w-full">
+      <section id="projects" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         <SectionHeader title={tProj('title')} subtitle={tProj('subtitle')} />
 
         {/* Filter tabs — identical to projects/page.tsx */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2 mb-10 -mx-1 px-1 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible pb-1 sm:pb-0">
           {(Object.keys(projectFilters) as Category[]).map((key) => (
             <button
               key={key}
@@ -465,10 +530,10 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
         )}
 
         {/* Disclaimer */}
-        <div className="mt-14 flex flex-col items-center gap-2 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/8 border border-accent/20">
+        <div className="mt-14 flex flex-col items-center gap-2 text-center px-2">
+          <div className="inline-flex flex-col sm:flex-row items-center gap-2 px-4 py-3 sm:py-2 rounded-2xl sm:rounded-full bg-accent/8 border border-accent/20 max-w-full">
             <span className="text-accent text-sm">⚡</span>
-            <p className="text-sm text-text-secondary">
+            <p className="text-sm text-text-secondary text-center sm:text-left">
               <span className="text-text-primary font-medium">Portfolio in progress</span> — I&apos;m actively open-sourcing projects to GitHub and adding new case studies here over time.
             </p>
           </div>
@@ -483,7 +548,7 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
       {/* ════════════════════════════════════════════════════ SKILLS
            Mirrors: skills/page.tsx → max-w-7xl mx-auto px-6 py-16      */}
       <Divider />
-      <section id="skills" className="max-w-7xl mx-auto px-6 py-16 w-full">
+      <section id="skills" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         <SectionHeader title={tSkills('title')} subtitle={tSkills('subtitle')} />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {skillCategories.map((cat, index) => (
@@ -502,7 +567,7 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
       {/* ══════════════════════════════════════════════════ AWARDS
            Mirrors: awards/page.tsx → max-w-5xl mx-auto px-6 py-16      */}
       <Divider />
-      <section id="awards" className="max-w-7xl mx-auto px-6 py-16 w-full">
+      <section id="awards" className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full">
         <SectionHeader title={tAwards('title')} subtitle={tAwards('subtitle')} />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {awards.map((item, index) => {
@@ -546,7 +611,7 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
       {/* ════════════════════════════════════════════════ CONTACT
            Mirrors: ContactPageContent → max-w-5xl mx-auto px-6 py-12   */}
       <Divider />
-      <section id="contact" className="max-w-7xl mx-auto px-6 py-12 w-full relative">
+      <section id="contact" className="max-w-7xl mx-auto px-4 sm:px-6 py-12 w-full relative">
 
         {/* Decorative background lines — same as ContactPageContent */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">

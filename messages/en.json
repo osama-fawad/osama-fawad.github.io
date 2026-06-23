@@ -115,10 +115,11 @@
         "description": "Developing a first-of-its-kind AR surgical guidance system at one of the world's biggest medical tech companies — CI surgery, dubbed the **'blind surgery'**, is performed by very few specialists, and with **3× more procedures needed than surgeons available by 2030**, this system enables non-specialists to operate, directly addressing the global CI surgeon shortage.",
         "highlights": [
           "Built **Visual-Inertial SLAM** (deep learning + geometric approaches, RGB-D + IMU) for real-time dense **3D Reconstruction**; automatic **3D CT-to-scene registration**; neural segmentation for live **AR overlay** of anatomical structures",
-          "Evaluated **ORB-SLAM3 + TSDF Fusion** and **MASt3R-SLAM** with loop closure for surgical-precision-grade drift correction",
-          "Replaced all prior infeasible prototypes — **20× cost reduction** through algorithm-first design"
+          "Implemented and evaluated **ORB-SLAM3 + TSDF Fusion**, **MASt3R-SLAM**, and **FoundationPose** (6DoF pose estimation & tracking)",
+          "Replaced all prior infeasible prototypes — **20× cost reduction** through algorithm-first design",
+          "Led **internal submission** of **2 patent applications** for AR surgical guidance and 3D scene registration"
         ],
-        "tech": ["Python", "PyTorch", "C++", "ORB-SLAM3", "MASt3R-SLAM", "TSDF Fusion", "Intel RealSense", "RGB-D Camera", "IMU", "ICP Registration", "Optical Tracking", "Meta Quest 3", "ROS2", "AR", "Signal Processing"],
+        "tech": ["Python", "PyTorch", "C++", "ORB-SLAM3", "MASt3R-SLAM", "FoundationPose", "TSDF Fusion", "Intel RealSense", "RGB-D Camera", "IMU", "ICP Registration", "Optical Tracking", "Meta Quest 3", "ROS2", "AR", "Signal Processing"],
         "logo": "/images/cochlear_logo.png",
         "url": "https://www.cochlear.com/au/en/home"
       },
@@ -256,6 +257,19 @@
         "description": "Created a lightweight BigGAN variant for multi-attribute synthetic face generation on CelebA while reducing model complexity.",
         "tech": ["PyTorch", "Python", "BigGAN", "CelebA", "CUDA", "NumPy"],
         "image": "/projects/biggan-architecture.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "sd-controlnet",
+        "title": "Stable Diffusion with ControlNet",
+        "category": "generative",
+        "description": "Built controllable image synthesis with **Stable Diffusion** and **ControlNet** — depth, edge, and pose conditioning for structured generative outputs.",
+        "tech": ["PyTorch", "Stable Diffusion", "ControlNet", "Diffusers", "Python", "CUDA"],
+        "image": "/projects/stable-diffusion-controlnet.png",
         "github": "",
         "demo": "",
         "paper": "",

@@ -7,6 +7,8 @@ interface Props {
   /** Diameter of the face/photo region in CSS pixels. */
   photoSize?: number;
   alt?: string;
+  /** Minimal chrome for inline mobile hero — circle + scan only. */
+  compact?: boolean;
   /** Sampling grid step in internal pixels (after DPR). Smaller = denser. */
   gridStep?: number;
   /** Dot size in internal pixels. Keep < gridStep for a visible point-cloud gap. */
@@ -41,6 +43,7 @@ export default function PhotoReveal({
   src,
   photoSize,
   alt = 'Portrait',
+  compact = false,
   gridStep,
   dotSize,
   imgStyle,
@@ -56,11 +59,9 @@ export default function PhotoReveal({
 
   const PHOTO = photoSize ?? diameter ?? 372;
 
-  /* Outer container leaves room for: cameras + caption above the circle, and
-     HUD telemetry below. */
-  const TOP_GUTTER = 52;   // caption + cameras
-  const BOTTOM_GUTTER = 34; // HUD strip
-  const SIDE_GUTTER = 24;   // room for cameras to the left / right of the clip
+  const TOP_GUTTER = compact ? 0 : PHOTO < 200 ? 24 : 52;
+  const BOTTOM_GUTTER = compact ? 0 : PHOTO < 200 ? 12 : 34;
+  const SIDE_GUTTER = compact ? 0 : PHOTO < 200 ? 10 : PHOTO < 300 ? 16 : 24;
   const OUTER_W = PHOTO + SIDE_GUTTER * 2;
   const OUTER_H = PHOTO + TOP_GUTTER + BOTTOM_GUTTER;
 
@@ -73,7 +74,7 @@ export default function PhotoReveal({
   const CAM_B_OUTER = { x: OUTER_W - SIDE_GUTTER + 10 - CAM_W, y: 22 };
 
   /* Scanner ring geometry (for the slight-glow ring in front of the photo). */
-  const RING_SIZE = PHOTO + 36;
+  const RING_SIZE = compact ? PHOTO + 20 : PHOTO + 36;
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -271,27 +272,34 @@ export default function PhotoReveal({
       let scanCompleteFired = false;
       let scanCompleteAt = 0;
 
-      const onMove = (e: MouseEvent) => {
-        if (!hovering) return;
+      const updatePointer = (clientX: number, clientY: number) => {
         const rect = canvas.getBoundingClientRect();
-        tmx = ((e.clientX - rect.left - rect.width / 2) / rect.width) * 2;
-        tmy = ((e.clientY - rect.top - rect.height / 2) / rect.height) * 2;
+        tmx = ((clientX - rect.left - rect.width / 2) / rect.width) * 2;
+        tmy = ((clientY - rect.top - rect.height / 2) / rect.height) * 2;
       };
-      const onEnter = () => {
+
+      const onPointerEnter = (e: PointerEvent) => {
         hovering = true;
+        updatePointer(e.clientX, e.clientY);
       };
-      const onLeave = () => {
+      const onPointerLeave = () => {
         hovering = false;
         tmx = 0;
         tmy = 0;
       };
-      canvas.addEventListener('mousemove', onMove, { passive: true });
-      canvas.addEventListener('mouseenter', onEnter);
-      canvas.addEventListener('mouseleave', onLeave);
+      const onPointerMove = (e: PointerEvent) => {
+        if (!hovering) return;
+        updatePointer(e.clientX, e.clientY);
+      };
+
+      canvas.style.touchAction = 'none';
+      canvas.addEventListener('pointerenter', onPointerEnter);
+      canvas.addEventListener('pointerleave', onPointerLeave);
+      canvas.addEventListener('pointermove', onPointerMove, { passive: true });
       cleanupHandlers.push(() => {
-        canvas.removeEventListener('mousemove', onMove);
-        canvas.removeEventListener('mouseenter', onEnter);
-        canvas.removeEventListener('mouseleave', onLeave);
+        canvas.removeEventListener('pointerenter', onPointerEnter);
+        canvas.removeEventListener('pointerleave', onPointerLeave);
+        canvas.removeEventListener('pointermove', onPointerMove);
       });
 
       const t0 = performance.now();
@@ -477,7 +485,7 @@ export default function PhotoReveal({
       cleanupHandlers.forEach((fn) => fn());
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [src, PHOTO, gridStep, dotSize]);
+  }, [src, PHOTO, gridStep, dotSize, compact]);
 
   if (disabled) {
     return (
@@ -539,7 +547,7 @@ export default function PhotoReveal({
             opacity: 0,
           }}
         />
-        <canvas ref={canvasRef} className="absolute inset-0" />
+        <canvas ref={canvasRef} className="absolute inset-0 cursor-pointer" />
       </div>
 
       {/* Scanner ring — in FRONT of the photo, with a slight glow */}
@@ -557,6 +565,7 @@ export default function PhotoReveal({
       </div>
 
       {/* Cameras + caption (fades out ~1 s after scan completes) */}
+      {!compact && (
       <div
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -594,8 +603,10 @@ export default function PhotoReveal({
           Stereo Cameras · 3D Reconstruction
         </div>
       </div>
+      )}
 
       {/* Corner L-brackets — viewfinder framing the whole sensor unit */}
+      {!compact && (
       <svg
         aria-hidden
         className="absolute inset-0 pointer-events-none"
@@ -633,8 +644,10 @@ export default function PhotoReveal({
           );
         })()}
       </svg>
+      )}
 
       {/* HUD telemetry — below the photo */}
+      {!compact && (
       <div
         aria-hidden
         className="absolute pointer-events-none"
@@ -672,6 +685,7 @@ export default function PhotoReveal({
           {scanComplete ? 'DEPTH · RGB-D' : 'STRUCTURED_LIGHT'}
         </span>
       </div>
+      )}
     </div>
   );
 }

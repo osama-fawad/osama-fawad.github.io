@@ -6,7 +6,7 @@ export default function Footer() {
 
   return (
     <footer className="relative z-10 border-t border-border bg-bg-secondary/50 backdrop-blur-sm">
-      <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-muted">
         <p>
           © {year} Muhammad Osama Fawad. {t('rights')}.
         </p>

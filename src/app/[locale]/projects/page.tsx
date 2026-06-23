@@ -23,11 +23,11 @@ export default function ProjectsPage() {
       : items.filter((item) => item.category === activeFilter);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 py-16">
+    <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
       <SectionHeader title={t('title')} subtitle={t('subtitle')} />
 
       {/* Filter tabs */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-10 -mx-1 px-1 sm:mx-0 sm:px-0 overflow-x-auto sm:overflow-visible pb-1 sm:pb-0">
         {(Object.keys(filters) as Category[]).map((key) => (
           <button
             key={key}
@@ -80,10 +80,10 @@ export default function ProjectsPage() {
       )}
 
       {/* Disclaimer */}
-      <div className="mt-14 flex flex-col items-center gap-2 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/8 border border-accent/20">
+      <div className="mt-14 flex flex-col items-center gap-2 text-center px-2">
+        <div className="inline-flex flex-col sm:flex-row items-center gap-2 px-4 py-3 sm:py-2 rounded-2xl sm:rounded-full bg-accent/8 border border-accent/20 max-w-full">
           <span className="text-accent text-sm">⚡</span>
-          <p className="text-sm text-text-secondary">
+          <p className="text-sm text-text-secondary text-center sm:text-left">
             <span className="text-text-primary font-medium">Portfolio in progress</span> — I&apos;m actively open-sourcing projects to GitHub and adding new case studies here over time.
           </p>
         </div>

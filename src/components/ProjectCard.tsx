@@ -104,7 +104,7 @@ export default function ProjectCard({
         </div>
 
         {/* Footer row */}
-        <div className="flex items-center justify-between mt-auto gap-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mt-auto gap-2 sm:gap-3">
           <div className="flex flex-wrap items-center gap-2">
             {github && (
               <a
@@ -149,7 +149,7 @@ export default function ProjectCard({
               </span>
             )}
           </div>
-          <span className="text-[11px] text-text-muted font-mono">Click card for details</span>
+          <span className="hidden sm:inline text-[11px] text-text-muted font-mono">Click card for details</span>
         </div>
       </div>
     </motion.article>

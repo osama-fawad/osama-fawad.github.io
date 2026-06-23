@@ -115,10 +115,11 @@
         "description": "Développement d'un système de guidage chirurgical AR inédit dans l'une des plus grandes entreprises de medtech — la chirurgie CI, surnommée **'chirurgie à l'aveugle'**, est réalisée par très peu de spécialistes, avec **3× plus de procédures nécessaires que de chirurgiens disponibles d'ici 2030** ; ce système permet aux non-spécialistes d'opérer, répondant directement à la pénurie mondiale.",
         "highlights": [
           "Construction du **SLAM Visuel-Inertiel** (deep learning + approches géométriques, RGB-D + IMU) pour la **Reconstruction 3D** dense en temps réel ; recalage automatique **CT 3D-vers-scène** ; segmentation neurale pour la superposition AR en direct",
-          "Évaluation de **ORB-SLAM3 + TSDF Fusion** et **MASt3R-SLAM** avec fermeture de boucle pour la correction de dérive de précision chirurgicale",
-          "Remplacement de tous les prototypes infaisables — **réduction de coût 20×** grâce à la conception algorithm-first"
+          "Implémentation et évaluation de **ORB-SLAM3 + TSDF Fusion**, **MASt3R-SLAM** et **FoundationPose** (estimation & suivi de pose 6DoF)",
+          "Remplacement de tous les prototypes infaisables — **réduction de coût 20×** grâce à la conception algorithm-first",
+          "Soumission interne de **2 demandes de brevet** pour le guidage chirurgical AR et l'enregistrement 3D"
         ],
-        "tech": ["Python", "PyTorch", "C++", "ORB-SLAM3", "MASt3R-SLAM", "TSDF Fusion", "Intel RealSense", "RGB-D Camera", "IMU", "ICP Registration", "Optical Tracking", "Meta Quest 3", "ROS2", "AR", "Signal Processing"],
+        "tech": ["Python", "PyTorch", "C++", "ORB-SLAM3", "MASt3R-SLAM", "FoundationPose", "TSDF Fusion", "Intel RealSense", "RGB-D Camera", "IMU", "ICP Registration", "Optical Tracking", "Meta Quest 3", "ROS2", "AR", "Signal Processing"],
         "logo": "/images/cochlear_logo.png",
         "url": "https://www.cochlear.com/fr/fr/home"
       },
@@ -256,6 +257,19 @@
         "description": "Variante légère de BigGAN pour la génération multi-attributs de visages sur CelebA avec complexité réduite.",
         "tech": ["PyTorch", "Python", "BigGAN", "CelebA", "CUDA", "NumPy"],
         "image": "/projects/biggan-architecture.png",
+        "github": "",
+        "demo": "",
+        "paper": "",
+        "video": "",
+        "featured": false
+      },
+      {
+        "id": "sd-controlnet",
+        "title": "Stable Diffusion avec ControlNet",
+        "category": "generative",
+        "description": "Synthèse d'images contrôlable avec **Stable Diffusion** et **ControlNet** — génération conditionnée par profondeur, contours et pose.",
+        "tech": ["PyTorch", "Stable Diffusion", "ControlNet", "Diffusers", "Python", "CUDA"],
+        "image": "/projects/stable-diffusion-controlnet.png",
         "github": "",
         "demo": "",
         "paper": "",
