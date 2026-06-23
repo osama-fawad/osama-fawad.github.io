@@ -38,7 +38,7 @@ export default async function LocaleLayout({
       <ParticleBackground />
       <Navbar cvHref={cvHref} />
       <PageTransition>
-        <main className="relative z-10 min-h-screen pt-16 pr-12 xl:pr-0">
+        <main className="relative z-10 min-h-screen pt-16 xl:pr-0">
           {children}
         </main>
       </PageTransition>

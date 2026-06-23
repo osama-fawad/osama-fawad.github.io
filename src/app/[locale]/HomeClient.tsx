@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useLayoutEffect, useCallback } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 
@@ -88,7 +88,22 @@ function computePhotoSize(viewportWidth: number) {
 }
 
 function computeCompactPhotoSize(viewportWidth: number) {
-  return Math.max(150, Math.min(200, Math.floor(viewportWidth * 0.44)));
+  return Math.max(120, Math.min(165, Math.floor(viewportWidth * 0.36)));
+}
+
+/** Matches mobile greeting `text-xl` — name never shrinks below this. */
+const MOBILE_GREETING_REM = 1.25;
+const MOBILE_NAME_FONT_STEPS = [2, 1.875, 1.75, 1.625, 1.5, 1.375, MOBILE_GREETING_REM] as const;
+const MOBILE_NAME_ACCENT_RATIO = 1.067;
+
+function heroNameOverlapsPhoto(nameH1: HTMLElement, photoEl: HTMLElement, gap = 10) {
+  const photo = photoEl.getBoundingClientRect();
+  const lines = nameH1.querySelectorAll<HTMLElement>('[data-name-line]');
+  let textRight = 0;
+  lines.forEach((line) => {
+    textRight = Math.max(textRight, line.getBoundingClientRect().right);
+  });
+  return textRight + gap > photo.left;
 }
 
 function Divider() {
@@ -132,6 +147,56 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
   const [photoReplayKey, setPhotoReplayKey]   = useState(0);
   const [photoSize, setPhotoSize]             = useState(372);
   const [compactPhotoSize, setCompactPhotoSize] = useState(140);
+  const [mobileNameFontRem, setMobileNameFontRem] = useState<number>(MOBILE_NAME_FONT_STEPS[0]);
+  const heroRowRef = useRef<HTMLDivElement>(null);
+  const heroNameRef = useRef<HTMLHeadingElement>(null);
+  const heroPhotoRef = useRef<HTMLDivElement>(null);
+
+  const fitMobileHeroName = useCallback(() => {
+    const nameH1 = heroNameRef.current;
+    const photo = heroPhotoRef.current;
+    if (!nameH1 || !photo || window.innerWidth >= 768) {
+      setMobileNameFontRem(MOBILE_NAME_FONT_STEPS[0]);
+      return;
+    }
+
+    const lines = nameH1.querySelectorAll<HTMLElement>('[data-name-line]:not([data-name-accent])');
+    const accent = nameH1.querySelector<HTMLElement>('[data-name-accent]');
+
+    let chosen = MOBILE_NAME_FONT_STEPS[MOBILE_NAME_FONT_STEPS.length - 1];
+
+    for (const rem of MOBILE_NAME_FONT_STEPS) {
+      lines.forEach((line) => { line.style.fontSize = `${rem}rem`; });
+      if (accent) accent.style.fontSize = `${rem * MOBILE_NAME_ACCENT_RATIO}rem`;
+
+      if (!heroNameOverlapsPhoto(nameH1, photo)) {
+        chosen = rem;
+        break;
+      }
+      chosen = rem;
+    }
+
+    lines.forEach((line) => { line.style.fontSize = ''; });
+    if (accent) accent.style.fontSize = '';
+    setMobileNameFontRem(chosen);
+  }, []);
+
+  useLayoutEffect(() => {
+    fitMobileHeroName();
+
+    const row = heroRowRef.current;
+    if (!row) return;
+
+    const observer = new ResizeObserver(() => fitMobileHeroName());
+    observer.observe(row);
+    if (heroPhotoRef.current) observer.observe(heroPhotoRef.current);
+
+    window.addEventListener('resize', fitMobileHeroName);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('resize', fitMobileHeroName);
+    };
+  }, [fitMobileHeroName, compactPhotoSize, photoReplayKey]);
 
   useEffect(() => {
     const updatePhotoSize = () => {
@@ -190,8 +255,11 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
               {t('greeting')}
             </motion.p>
 
-            {/* Mobile: name left, compact photo right */}
-            <div className="flex items-center gap-2 mb-6 md:mb-0 md:hidden">
+            {/* Mobile: name + photo side-by-side; font shrinks only if overlapping */}
+            <div
+              ref={heroRowRef}
+              className="flex items-center gap-2 mb-6 md:mb-0 md:hidden pr-9"
+            >
               <div className="flex-1 min-w-0 flex flex-col justify-center py-1 border-l-2 border-accent/50 pl-3.5">
                 <motion.p
                   initial={{ opacity: 0, y: 12 }}
@@ -202,17 +270,38 @@ export default function HomeClient({ cvHref }: { cvHref: string }) {
                   {t('greeting')}
                 </motion.p>
                 <motion.h1
+                  ref={heroNameRef}
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.1 }}
-                  className="font-bold tracking-tight leading-[1.1]"
+                  className="font-bold tracking-tight leading-[1.1] w-fit max-w-full"
                 >
-                  <span className="block text-3xl font-medium text-text-secondary mb-0.5">Muhammad</span>
-                  <span className="block text-3xl font-bold text-text-primary mb-0.5">Osama</span>
-                  <span className="block text-[2rem] font-bold text-accent leading-none">Fawad</span>
+                  <span
+                    data-name-line
+                    className="block font-medium text-text-secondary mb-0.5 text-xl"
+                    style={{ fontSize: `${Math.max(mobileNameFontRem, MOBILE_GREETING_REM)}rem` }}
+                  >
+                    Muhammad
+                  </span>
+                  <span
+                    data-name-line
+                    className="block font-bold text-text-primary mb-0.5 text-xl"
+                    style={{ fontSize: `${Math.max(mobileNameFontRem, MOBILE_GREETING_REM)}rem` }}
+                  >
+                    Osama
+                  </span>
+                  <span
+                    data-name-line
+                    data-name-accent
+                    className="block font-bold text-accent leading-none text-xl"
+                    style={{ fontSize: `${Math.max(mobileNameFontRem, MOBILE_GREETING_REM) * MOBILE_NAME_ACCENT_RATIO}rem` }}
+                  >
+                    Fawad
+                  </span>
                 </motion.h1>
               </div>
               <motion.div
+                ref={heroPhotoRef}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: 0.15 }}

@@ -50,7 +50,7 @@ function SectionDots({
     <div className={className}>
       <div className={showLabels
         ? 'glass rounded-2xl border border-white/[0.07] shadow-[0_8px_32px_rgba(0,0,0,0.45)] px-4 py-5'
-        : 'flex flex-row items-center gap-1.5'
+        : 'flex flex-row items-center gap-1.5 pointer-events-auto'
       }>
         <div className={showLabels
           ? ''
@@ -112,7 +112,7 @@ function SectionDots({
 
         {!showLabels && (
           <span
-            className="flex flex-col items-center gap-0.5 text-[11px] font-bold uppercase text-accent select-none tracking-wide pr-0.5"
+            className="hidden min-[420px]:flex flex-col items-center gap-0.5 text-[10px] font-bold uppercase text-accent select-none tracking-wide pr-0.5"
             aria-hidden
           >
             {activeLabel.split('').map((char, i) => (
@@ -155,7 +155,7 @@ export default function SectionNav() {
       <SectionDots
         activeSection={activeSection}
         showLabels={false}
-        className="fixed right-1.5 top-1/2 -translate-y-1/2 z-40 xl:hidden select-none"
+        className="fixed right-[max(0.375rem,env(safe-area-inset-right))] top-1/2 -translate-y-1/2 z-40 xl:hidden select-none pointer-events-none"
       />
     </>
   );
